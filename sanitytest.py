@@ -174,6 +174,8 @@ for cname in wantfunctions:
     if name[0:22] == "virConnectNetworkEvent" and name[-8:] == "Callback":
         continue
 
+    if (name.startswith("virConnectStoragePoolEvent") and name.endswith("Callback")):
+        continue
 
     # virEvent APIs go into main 'libvirt' namespace not any class
     if name[0:8] == "virEvent":
